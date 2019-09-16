@@ -25,7 +25,7 @@ class Knn:
 
                 return resMat, labelMat
 
-    def drawpicture(self, resMat, labelMat):
+    def drawpicture(self, resMat):
         fig = plt.figure()
         # 将画布且分为一行一列
         ax = fig.add_subplot(111)
@@ -95,7 +95,10 @@ if __name__ == "__main__":
     knn = Knn()
     resMat, labelMat = knn.fileToMatrix("data.txt")
     # normData = knn.autoNorm(resMat)
+
     testData = numpy.array([7000, 12.03333, 0.7])
-    res = knn.getKnn(testData, resMat, labelMat, 300)
+    res = knn.getKnn(testData, resMat, labelMat, 20)
+
+    knn.drawpicture(resMat)
 
     print(res)
