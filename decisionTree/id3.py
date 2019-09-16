@@ -1,16 +1,57 @@
+<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 from math import log
 import operator
 import tree_plotter
 
+=======
+# @Time    : 2019/9/10 16:04
+# @Author  : Libuda
+# @FileName: id3.py
+# @Software: PyCharm
+# -*- coding: utf-8 -*-
+from math import log
+import operator
+from decisionTree import tree_plotter
+>>>>>>> origin/master
 
 def create_data_set():
     """
     创建样本数据
     :return:
     """
+<<<<<<< HEAD
     data_set = [[1, 1, 'yes'], [1, 1, 'yes'], [1, 0, 'no'], [0, 1, 'no'], [0, 1, 'no']]
     labels = ['no surfacing', 'flippers']
+=======
+    # data_set = [[1, 1, 'yes'], [1, 1, 'yes'], [1, 0, 'no'], [0, 1, 'no'], [0, 1, 'no']]
+
+    # data_set = [
+    #     ['青绿','蜷缩','浊响','清晰','凹陷','硬滑'  ,  '是'],
+    #     ['乌黑','蜷缩','沉闷','清晰','凹陷','硬滑' ,   '是'],
+    #     ['乌黑','蜷缩','浊响' '清晰','止陷','硬滑'  ,  '是'],
+    #     ['青绿','蜷缩','沉闷','清晰','凹陷','硬滑'  ,  '是'],
+    #     ['浅白','稍蜷','浊响','清晰','凹陷','硬滑' ,   '是'],
+    #     ['青绿','稍蜷','浊响','清晰','稍凹','软粘'  ,  '是'],
+    #     ['乌黑','稍蜷','浊响','稍糊','稍凹','软粘' ,   '是'],
+    #     ['乌黑','稍蜷','浊响','清晰','稍凹','硬滑'   , '是'],
+    #     ['乌黑','稍蜷','沉闷','稍糊','稍凹','硬滑'  ,  '否'],
+    #     ['青绿','硬挺','清脆','清晰','平坦','软粘'  ,  '否'],
+    #     ['浅白','硬挺','清脆','模糊','平坦','硬滑' ,   '否'],
+    #     ['浅白','蜷缩','浊响','模糊','平坦','软粘' ,   '否'],
+    #     ['青绿','稍蜷','浊响','稍糊','凹陷','硬滑'  ,  '否'],
+    #     ['浅白','稍蜷','沉闷','稍糊','凹陷','硬滑' ,   '否'],
+    #     ['乌黑','稍蜷','浊响','清晰','稍凹','软粘' ,   '否'],
+    #     ['浅白','蜷缩','浊响','模糊','平坦','硬滑' ,   '否'],
+    #
+    # ]
+    # labels = ['a', 'b','c','d','e','f']
+
+
+    data_set = [[1, 1, 'yes'], [1, 1, 'yes'], [1, 0, 'no'], [0, 1, 'no'], [0, 1, 'no']]
+    labels = ['s', 'a', 'b']
+
+>>>>>>> origin/master
     return data_set, labels
 
 
@@ -92,8 +133,14 @@ def majority_cnt(class_list):
         if vote not in class_count.keys():
             class_count[vote] = 0
         class_count[vote] += 1
+<<<<<<< HEAD
     sorted_class_count = sorted(class_count.items(), key=operator.itemgetter(1), reversed=True)
     print sorted_class_count[0][0]
+=======
+    print(class_count)
+    sorted_class_count = sorted(class_count.items(), key=lambda d:d[1], reverse=True)
+    print(sorted_class_count[0][0])
+>>>>>>> origin/master
     return sorted_class_count[0][0]
 
 
@@ -148,9 +195,20 @@ def classify(input_tree, feat_labels, test_vec):
 
 data_set, labels = create_data_set()
 decision_tree = create_tree(data_set, labels)
+<<<<<<< HEAD
 print "决策树：", decision_tree
 data_set, labels = create_data_set()
 print "（1）不浮出水面可以生存，无脚蹼：", classify(decision_tree, labels, [1, 0])
 print "（2）不浮出水面可以生存，有脚蹼：", classify(decision_tree, labels, [1, 1])
 print "（3）不浮出水面可以不能生存，无脚蹼：", classify(decision_tree, labels, [0, 0])
 tree_plotter.create_plot(decision_tree)
+=======
+print("决策树：", decision_tree)
+data_set, labels = create_data_set()
+# print("（1）不浮出水面可以生存，无脚蹼：", classify(decision_tree, labels, [1, 0]))
+# print ("（2）不浮出水面可以生存，有脚蹼：", classify(decision_tree, labels, [1, 1]))
+# print ("（3）不浮出水面可以不能生存，无脚蹼：", classify(decision_tree, labels, [0, 0]))
+tree_plotter.create_plot(decision_tree)
+
+
+>>>>>>> origin/master
