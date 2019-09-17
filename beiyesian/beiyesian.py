@@ -16,25 +16,25 @@ class Beyesian:
         创建数据集
         :return:
         """
-        dataSet = [['my', 'dog', 'has', 'flea', 'problems', 'help', 'please'],  # [0,0,1,1,1......]
-                   ['maybe', 'not', 'take', 'him', 'to', 'dog', 'park', 'stupid'],
-                   ['my', 'dalmation', 'is', 'so', 'cute', 'I', 'love', 'him'],
-                   ['stop', 'posting', 'stupid', 'worthless', 'garbage'],
-                   ['mr', 'licks', 'ate', 'my', 'steak', 'how', 'to', 'stop', 'him'],
-                   ['quit', 'buying', 'worthless', 'dog', 'food', 'stupid']]
-        labels = [0, 1, 0, 1, 0, 1]  # 0代表非侮辱性的
+        # dataSet = [['my', 'dog', 'has', 'flea', 'problems', 'help', 'please'],  # [0,0,1,1,1......]
+        #            ['maybe', 'not', 'take', 'him', 'to', 'dog', 'park', 'stupid'],
+        #            ['my', 'dalmation', 'is', 'so', 'cute', 'I', 'love', 'him'],
+        #            ['stop', 'posting', 'stupid', 'worthless', 'garbage'],
+        #            ['mr', 'licks', 'ate', 'my', 'steak', 'how', 'to', 'stop', 'him'],
+        #            ['quit', 'buying', 'worthless', 'dog', 'food', 'stupid']]
+        # labels = [0, 1, 0, 1, 0, 1]  # 0代表非侮辱性的
 
-        # dataSet = [
-        #     ['dapenti', "hushi"],
-        #     ['dapenti', "nongfu"],
-        #     ['touten', "jianzhugongren"],
-        #     ['touten', "jianzhugongren"],
-        #     ['dapenti', "jiaoshi"],
-        #     ['touten', "jiaoshi"],
-        # ]
-        #
-        # # 1 感冒  2 过敏  3 脑震荡
-        # labels = [1, 2, 3, 1, 1, 3]
+        dataSet = [
+            ['dapenti', "hushi"],
+            ['dapenti', "nongfu"],
+            ['touten', "jianzhugongren"],
+            ['touten', "jianzhugongren"],
+            ['dapenti', "jiaoshi"],
+            ['touten', "jiaoshi"],
+        ]
+
+        # 1 感冒  2 过敏  3 脑震荡
+        labels = [1, 2, 3, 1, 1, 3]
 
         return dataSet, labels
 
@@ -138,10 +138,10 @@ if __name__ == "__main__":
     print("wordList", beyesian.wordList)
     print("vector", beyesian.vector)
     print("p1", beyesian.getPercentageByLabel(1))
-    print("p2", beyesian.getPercentageByTezheng("my"))
-    print("p3", beyesian.getPercentageByTemandLael("my", 1))
-    print("res0",beyesian.main(inputWord2,0))
-    print("res1",beyesian.main(inputWord2,1))
-    print("s",beyesian.beiyesian(inputWord2))
+    print("p2", beyesian.getPercentageByTezheng("dapenti"))
+    print("p3", beyesian.getPercentageByTemandLael("dapenti", 1))
+    print("res0",beyesian.main(inputWord,0))
+    print("res1",beyesian.main(inputWord,1))
+    print("s",beyesian.beiyesian(inputWord))
     # print(beyesian.beiYeSian(beyesian.dataSet[1]))
     # print(0.66 * 0.33 * 0.5)
