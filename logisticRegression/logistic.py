@@ -69,15 +69,76 @@ class LogisticRegression:
         data = self.data[:,:col-1]
         #数据的标签
         label = self.data[:,col-1:col]
+        #theta
+        theta = np.zeros([1,3])
 
-        return data,label
+        return data,label,theta
+
+    def model(self,X,theta):
+        """
+        预测函数
+        :param X:
+        :param theta:
+        :return:
+        """
+        return self.sigmoid(np.dot(X,theta.T))
+
+    def cost(self,X,y,theta):
+        """
+        损失函数
+        :param X:  数据
+        :param y:   标签
+        :param theta:  特征向量
+        :return:
+        """
+        left = np.multiply(-y,np.log(self.model(X,theta)))
+        right = np.multiply(1-y,np.log(1-self.model(X,theta)))
+        return np.sum(left-right)/len(X)
+
+    def gradient(self,X,y,theta):
+        """
+        计算梯度
+        :param X:
+        :param y:
+        :param theta:
+        :return:
+        """
+        grad = np.zeros(theta.shape)
+        error = (self.model(X,theta)-y).ravel()
+        for j in range(len(theta.ravel())):
+            term = np.multiply(error,X[:,j])
+            grad[0,j] = np.sum(term)/len(X)
+        return grad
+
+    def shuffleData(self,data):
+        """
+        洗牌
+        :param data:
+        :return:
+        """
+        np.random.shuffle(data)
+        cols = data.shape[1]
+        X = data[:,0:cols-1]
+        y = data[:,cols-1:]
+        return X,y
+
+
+
+
 
 
 
 if __name__=="__main__":
     logistic = LogisticRegression()
-    logistic.show_pic()
-    logistic.show_sigmoid()
-    data,label = logistic.prepare_data()
-    print(data)
-    print(label)
+
+    #初始数据展示
+    # logistic.show_pic()
+
+    #sigomoid函数展示
+    # logistic.show_sigmoid()
+
+    data,label,theta = logistic.prepare_data()
+    s = logistic.cost(data,label,theta)
+    print(s)
+    grad = logistic.gradient(data,label,theta)
+    print(grad)
